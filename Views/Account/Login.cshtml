@@ -1,0 +1,14 @@
+﻿@model LoginView
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+<form asp-action="Login" method="post">
+    <label asp-for="Name">Email:</label>
+    <input asp-for="Name"/>
+    <label asp-for="Password">Password:</label>
+    <input asp-for="Password"/>
+    <button type="submit" class="btn btn-outline-primary">LogIn</button>
+</form>
+

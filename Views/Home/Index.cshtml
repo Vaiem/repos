@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@if (@User.Identity.Name != null)
+{
+  <br /><p>Добро пожаловать-@User.Identity.Name <a asp-action="Favorits">перейти в Избранное</a></p>
+}
+
+<div style="height:400px; background-image: linear-gradient(to bottom right, #ee82ee, #ff0000);" class="hero-unit" >
+    
+    <h1>Вдохновляй и вдохновляйся</h1>
+    <h2>Находи интересный дезайны сайтов и<br /> показывай свои решения всему миру,<br />Вдохновляйся!!!</h2>
+    
+    <p>
+        <a class="btn btn-primary btn-large" href="~/Home/DesignAll">
+            Перейти к просмотру
+        </a>
+    </p>
+</div>

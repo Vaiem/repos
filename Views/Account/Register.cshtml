@@ -1,0 +1,14 @@
+﻿@model LoginView
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>Register</h2>
+
+<form asp-action="Register" method="post">
+    <label asp-for="Name">Email:</label>
+    <input asp-for="Name" />
+    <label asp-for="Password">Password:</label>
+    <input asp-for="Password" />
+    <button type="submit" class="btn btn-outline-primary">LogIn</button>
+</form>

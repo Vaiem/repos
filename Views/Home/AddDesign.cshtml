@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "AddDesign";
+}
+
+<h2>AddDesign</h2>
+<form asp-action="AddDesign" method="post" enctype="multipart/form-data">
+   
+    <label>NameDesign:</label>
+    <input type="text"name="desing"/>
+    <label>добавить:</label>
+    <input type="file" name="uploadedFile" />
+    <button type ="submit" class="btn btn-outline-primary">Создать</button>
+</form>
+

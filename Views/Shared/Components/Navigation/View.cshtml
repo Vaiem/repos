@@ -1,0 +1,6 @@
+﻿@model IEnumerable<string>
+
+@foreach (var item in Model)
+{
+    <a class="btn btn-primary" asp-action="DesignAll" asp-route-page="1" asp-route-categoria="@item">@item</a>
+}

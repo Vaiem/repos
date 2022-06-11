@@ -1,0 +1,16 @@
+﻿@model IEnumerable<AutorToDesing>
+@{
+    ViewData["Title"] = "View";
+}
+
+<h2>Избранное</h2>
+
+@foreach (var item in Model)
+{
+    <div class="tab-content text-lg-center" style="background: repeating-linear-gradient(-45deg, red, red 5px, blue 5px, blue 10px); width:1000px; padding: 10px;margin: auto; border-radius:25px 25px;">      
+        <h3>@item.Autor.Email</h3>
+
+        @Html.Raw("<img style='width:100px; height:100px;' src=\"data:image/jpeg;base64,"
+             +Convert.ToBase64String(item.Desing.PhotoOne) + "\" />")
+        </div>
+}

@@ -1,0 +1,51 @@
+﻿@model Pagination
+@{
+    ViewData["Title"] = "DesignAll";
+}
+
+
+
+
+
+
+<h2>@Model.CurrentCategoria</h2>
+
+
+@foreach (var item in Model.Desings)
+{
+    <div class="tab-content text-lg-center" style="background: repeating-radial-gradient(circle, #B9ECFE, #B9ECFE 10px, #82DDFF 10px, #82DDFF 20px); width:1000px; padding: 10px;margin: auto; border-radius:25px 25px;">
+        <h3>@item.Autor</h3>
+
+        @Html.Raw("<img style='width:100px; height:100px;' src=\"data:image/jpeg;base64,"
+             +Convert.ToBase64String(item.PhotoOne) + "\" />")
+        <form asp-action="AddFavorites" method="post">
+            <input type="hidden" name="id" value="@item.DesingId"/>
+            <button type="submit" class="btn btn-danger">Добавить в избранное+</button>
+        </form>
+    </div>
+}
+@if (ViewBag.CurrentPage <= Model.allCountPage && ViewBag.CurrentPage >= 1)
+{
+    <ul class="nav nav-pills" style=" width: 200px; padding: 10px;margin: auto;">
+        <li>
+            <a class="btn btn-primary" asp-action="DesignAll" asp-route-page="@(ViewBag.CurrentPage+1)" asp-route-categoria="@Model.CurrentCategoria">Вперед</a>
+        </li>
+        <li><a class="btn btn-outline-danger" asp-action="DesignAll" asp-route-page="@(ViewBag.CurrentPage-1)" asp-route-categoria="@Model.CurrentCategoria">Назад</a></li>
+
+    </ul>
+}
+else
+{
+    <a class="btn btn-outline-primary" asp-action="DesignAll" asp-route-page="1" asp-route-categoria="@Model.CurrentCategoria">Вернутся на главную</a>
+}
+
+    <div style="text-shadow:rgba(135, 60, 255, 0.4)">
+        <h2>Другие категории</h2>
+        <ul class="nav nav-pills" style=" width: 200px; padding: 10px;margin: auto;">
+            <li style=" padding: 10px; "> <a asp-action="DesignAll" asp-route-page="1">Все</a></li>
+            @foreach (var categori in Model.categoryAll)
+            {
+            <li style=" padding: 10px; "> <a asp-action="DesignAll" asp-route-page="1" asp-route-categoria="@categori">@categori</a></li> 
+            }
+        </ul>
+    </div>
